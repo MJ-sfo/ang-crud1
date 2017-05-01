@@ -1,13 +1,15 @@
 console.log('BooksController.js started');
 
 angular
-  .module('booksApp', ['ngRoute'])
-  .controller('booksController', BooksController)
+  // .module('booksApp', ['ngRoute'])
+  .module('booksApp')
+  .controller('BooksController', BooksController)
 
 BooksController.$inject = ['$http'];
 function BooksController ($http, $routeParams) {
   var vm = this;
 
+  console.log("line 11");
   // BooksController.$inject= ['$http'];
   $http({
     method: 'GET',
@@ -16,8 +18,8 @@ function BooksController ($http, $routeParams) {
   }).then(function successCallback(response) {
     vm.book = response.data;
     vm.test ='sanity check for vm';
-    console.log(vm.test);
-    console.log(vm);0
+    console.log(vm.book);
+    console.log(vm);
   }, function errorCallback(response) {
     console.log('There was an error getting the data', response);
   }  //  function errorCallback
