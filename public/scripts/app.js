@@ -1,5 +1,3 @@
-console.log('app.js INSIDE public started');
-
 angular
   .module('booksApp', ['ngRoute'])
   .config(config)
@@ -7,7 +5,6 @@ angular
 
   config.$inject = ['$routeProvider', '$locationProvider'];
   function config ($routeProvider, $locationProvider) {
-    console.log('config function working');
     $routeProvider
       .when('/', {
         templateUrl: '../../templates/insert.html',

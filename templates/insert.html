@@ -1,6 +1,5 @@
 <div class='container'>
 <!-- container for repeated blocks for each book (a website within original website) -->
-<!-- <span>{{booksCtrl}}</span> -->
   <div ng-repeat="book in booksCtrl.firstLevelBooks.books" | orderBy: 'title' class="row">
 
     <div class="col-md-10 col-md-offset-1">
@@ -11,6 +10,10 @@
               <h4 class='inline-header'>Book Title:</h4>
               <span ng-hide="editing"><a ng-href="books/{{book.title}}">{{book.title}}</a></span>
               <input ng-show="editing" ng-model="book.name" type="text" class="form-control input-md">
+              <button type="button" class="btn btn-info" ng-hide="editing" ng-click ="editing = true"><span>Edit</span></button>
+              <
+              <button type="button" class="btn btn-danger" ng-hide="editing" ng-click="booksCtrl.editBook(book); editing = false"><span class="gly gly-ok"></span></button>
+              ({{book.title}})
             </li>
 
           </ul>
