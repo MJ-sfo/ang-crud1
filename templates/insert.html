@@ -3,7 +3,7 @@
   <div ng-repeat="book in booksCtrl.firstLevelBooks.books" | orderBy: 'title' class="row">
 
     <div class="col-md-10 col-md-offset-1">
-      <div class='row'>
+      <div class='row' class="change" ng-submit= "booksChangeCtrl.books">
         <div class="col-md-9 col-xs-12">
           <ul class="list-group form-inline">
             <li class="list-group-item">
@@ -12,7 +12,7 @@
               <input ng-show="editing" ng-model="book.title" type="text" class="form-control input-md">
 
               <button class="btn btn-info" ng-hide="editing" ng-click ="editing = true"><span>Edit Title</span></button>
-              <button class="btn btn-success" ng-show="editing" ng-click ="booksCtrl.editBook(book); editing = fasle">Save Changes</button>
+              <button class="btn btn-success" ng-show="editing" ng-click ="booksCtrl.editBook(book); editing = false">Save Changes</button>
             </li>
 
           </ul>

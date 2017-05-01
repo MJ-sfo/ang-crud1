@@ -11,6 +11,11 @@ angular
         controllerAs: 'booksCtrl',
         controller: 'BooksController'
       })
+    .when('/:id', {
+      templateUrl: '../../templates/insert.html',
+      controllerAs: 'booksChangeCtrl',
+      controller: 'BooksChangeController'
+    })
     .otherwise({
       redirectTo: '/'
     });
