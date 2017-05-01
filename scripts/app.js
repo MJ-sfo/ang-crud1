@@ -3,11 +3,11 @@ console.log('app.js started');
 angular
   .module('booksApp', ['ngRoute'])
   .config(config)
-  .controller('BooksController', BooksController)
+  // .controller('BooksController', BooksController)
 
   config.$inject = ['$routeProvider', '$locationProvider'];
   function config ($routeProvider, $locationProvider) {
-    console.log('function working');
+    console.log('config function working');
     $routeProvider
       .when('/', {
         templateUrl: '../templates/insert.html',
