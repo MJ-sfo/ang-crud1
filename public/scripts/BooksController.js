@@ -16,9 +16,9 @@ function BooksController ($http, $routeParams) {
     url: 'https://super-crud.herokuapp.com/books'
     //  end of $http({
   }).then(function successCallback(response) {
-    vm.book = response.data;
+    vm.firstLevelBooks = response.data;
     vm.test ='sanity check for vm';
-    console.log(vm.book);
+    console.log(vm.firstLevelBooks);
     console.log(vm);
   }, function errorCallback(response) {
     console.log('There was an error getting the data', response);
