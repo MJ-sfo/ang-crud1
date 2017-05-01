@@ -1,0 +1,25 @@
+console.log('app.js started');
+
+angular
+  .module('booksApp', ['ngRoute'])
+  .config(config)
+  .controller('BooksController', BooksController)
+
+  config.$inject = ['$routeProvider', '$locationProvider'];
+  function config ($routeProvider, $locationProvider) {
+    console.log('function working');
+    $routeProvider
+      .when('/', {
+        templateUrl: '../templates/insert.html',
+        controllerAs: 'booksCtrl',
+        controller: 'BooksController'
+      })
+    .otherwise({
+      redirectTo: '/'
+    });
+
+      $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
+}   //  function config ($routeProvider
