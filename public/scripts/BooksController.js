@@ -19,6 +19,20 @@ function BooksController ($http, $routeParams) {
     console.log('There was an error getting the data', response);
   }  //  function errorCallback
   ) // curved bracket -  //  then(function successCallback
+  vm.update = function updateTitle (book){
+     $http({
+      method: 'POST',
+      url: 'https://super-crud.herokuapp.com/books/' + book._id,
+      data: book
+    }).then(function successCallback(response) {
+      console.log("vm.firstLevelBooks.books is: ");
+      console.log(vm.firstLevelBooks.books);
+      vm.firstLevelBooks.books.push(response.data)
+    }, function errorCallback(response) {
+      console.log("There was an error editing the data", response);
+    });
+  }   //  vm.update
+
 }  //  function booksController
 
 BooksChangeController.$inject = ['$http', '$routeParams'];
@@ -32,15 +46,5 @@ function BooksChangeController ($http, $routeParams) {
     vm.books = response.data;
   }, function errorCallback(response) {
     console.log('There was an error getting the data', response);
-  });
-
-  $http({
-    method: 'POST',
-    url: '/' + $routeParams.id + 'book._id',
-    data: vm.books.book
-  }).then(function successCallback(response) {
-    vm.books.push(response.data)
-  }, function errorCallback(response) {
-    console.log("There was an error editing the data", response);
   });
 }

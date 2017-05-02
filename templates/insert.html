@@ -12,7 +12,7 @@
               <input ng-show="editing" ng-model="book.title" type="text" class="form-control input-md">
 
               <button class="btn btn-info" ng-hide="editing" ng-click ="editing = true"><span>Edit Title</span></button>
-              <button class="btn btn-success" ng-show="editing" ng-click ="booksCtrl.editBook(book); editing = false">Save Changes</button>
+              <button class="btn btn-success" ng-show="editing" ng-click ="booksCtrl.update(book); editing = false">Save Changes</button>
             </li>
 
           </ul>
